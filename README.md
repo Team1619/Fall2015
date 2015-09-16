@@ -1,2 +1,2 @@
 # Fall2015
-Team 1619 fall 2015 git repository. Contains all 2015 pre-build season robotics projects. 
+Team 1619 fall 2015 git repository. Contains all 2015 pre-build season robotics projects.
