@@ -1,0 +1,4 @@
+**/out/
+**/workspace.xml
+**/*.iws
+**/tasks.xml
