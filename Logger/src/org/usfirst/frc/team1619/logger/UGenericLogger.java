@@ -73,7 +73,7 @@ public abstract class UGenericLogger
                 String output = String.format("[%s], [%s],", getTimeString(), Thread.currentThread());
                 for (String s : msg)
                 {
-                    output = String.format("%s %s", output, s);
+                    output = String.format("%s%s", output, s);
                 }
                 fOutput.append(output).append('\n');
                 fOutput.flush();

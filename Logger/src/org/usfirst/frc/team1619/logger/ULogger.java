@@ -19,7 +19,7 @@ public class ULogger extends UGenericLogger
      *
      * @param message The error message
      */
-    public void error(String ... message)
+    public void error(String... message)
     {
         log("ERROR", message);
     }
@@ -29,7 +29,7 @@ public class ULogger extends UGenericLogger
      *
      * @param message The warning message
      */
-    public void warning(String ... message)
+    public void warning(String... message)
     {
         if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.WARNING) >= 0)
         {
@@ -42,7 +42,7 @@ public class ULogger extends UGenericLogger
      *
      * @param message The info message
      */
-    public void info(String ... message)
+    public void info(String... message)
     {
         if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.INFO) >= 0)
         {
@@ -55,7 +55,7 @@ public class ULogger extends UGenericLogger
      *
      * @param message The debug message
      */
-    public void debug(String ... message)
+    public void debug(String... message)
     {
         if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.DEBUG) >= 0)
         {
@@ -71,7 +71,7 @@ public class ULogger extends UGenericLogger
      */
     protected void log(String level, String[] message)
     {
-        message[0] = String.format("[%s], %s",level, message[0]);
+        message[0] = String.format(" [%s], %s",level, message[0]);
         fLoggingQueue.add(message);
     }
 }
