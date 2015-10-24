@@ -41,7 +41,7 @@ public abstract class UGenericLogger
         @Override
         public void run()
         {
-            Boolean notDone = true;
+            boolean notDone = true;
             while (notDone)
             {
                 try
@@ -126,18 +126,19 @@ public abstract class UGenericLogger
      *
      * @param folder (can either be a single file, or a directory)
      */
-    private static void deleteFile(File folder)
+    private static boolean deleteFile(File folder)
     {
         if (folder.isDirectory())
         {
             File[] files = folder.listFiles();
+            assert files != null;
             for (File file : files)
             {
                 deleteFile(file);
             }
         }
 
-        folder.delete();
+        return folder.delete();
     }
 
     /**
@@ -191,6 +192,7 @@ public abstract class UGenericLogger
         if (logFolder.isDirectory())
         {
             File[] logPaths = logFolder.listFiles();
+            assert logPaths != null;
             Arrays.sort(logPaths);
 
             for (int i = 0; i < (logPaths.length - MAX_LOGS); i++)
@@ -248,8 +250,7 @@ public abstract class UGenericLogger
             }
 
             File logDir = new File(LOG_FOLDER_PATH + sLogFolder);
-            logDir.mkdir();
-            if (logDir.exists())
+            if (logDir.mkdir() || logDir.exists())
             {
                 fOutput = new FileWriter(LOG_FOLDER_PATH + sLogFolder + fLogName);
                 initLog();

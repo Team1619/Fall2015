@@ -1,7 +1,5 @@
 package org.usfirst.frc.team1619.logger;
 
-import java.io.IOException;
-
 /**
  * Created by DanielHathcock on 10/23/15.
  * Project: Logger
