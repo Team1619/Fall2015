@@ -1,30 +1,17 @@
 package org.usfirst.frc.team1619.logger;
 
-import java.util.concurrent.ArrayBlockingQueue;
-
 /**
  * Created by DanielHathcock on 10/6/15.
  * Project: Logger
  * Package: org.usfirst.frc.team1619.logger
  */
-public class ULogger
+public class ULogger extends UGenericLogger
 {
-
-    private ArrayBlockingQueue loggingQueue;
 
     public ULogger()
     {
-        loggingQueue = new ArrayBlockingQueue(32);
-
-        new Thread(new Runnable()
-        {
-
-            @Override
-            public void run()
-            {
-
-            }
-        }).start();
+        super("UACRRobot" + UProperties.getLoggingLevel() + "Log");
+        nextLog();
     }
 
     /**
@@ -32,7 +19,8 @@ public class ULogger
      *
      * @param message The error message
      */
-    public void error(String message) {
+    public void error(String ... message)
+    {
         log("ERROR", message);
     }
 
@@ -41,8 +29,10 @@ public class ULogger
      *
      * @param message The warning message
      */
-    public void warning(String message) {
-        if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.WARNING) >= 0) {
+    public void warning(String ... message)
+    {
+        if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.WARNING) >= 0)
+        {
             log("WARNING", message);
         }
     }
@@ -52,8 +42,10 @@ public class ULogger
      *
      * @param message The info message
      */
-    public void info(String message) {
-        if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.INFO) >= 0) {
+    public void info(String ... message)
+    {
+        if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.INFO) >= 0)
+        {
             log("INFO", message);
         }
     }
@@ -63,8 +55,10 @@ public class ULogger
      *
      * @param message The debug message
      */
-    public void debug(String message) {
-        if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.DEBUG) >= 0) {
+    public void debug(String ... message)
+    {
+        if (UProperties.getLoggingLevel().compareTo(ULoggingLevels.DEBUG) >= 0)
+        {
             log("DEBUG", message);
         }
     }
@@ -72,10 +66,12 @@ public class ULogger
     /**
      * Adds the message to the loggingQueue to be written
      *
-     * @param level The text version of the logging level
+     * @param level   The text version of the logging level
      * @param message The log message
      */
-    protected void log(String level, String message) {
-        // add message to ArrayBlockingQueue
+    protected void log(String level, String[] message)
+    {
+        message[0] = String.format("[%s], %s",level, message[0]);
+        fLoggingQueue.add(message);
     }
 }
