@@ -16,7 +16,7 @@ public class UDataCollector extends UGenericLogger
      */
     public UDataCollector(String logName, String... headers)
     {
-        super("UACRRobotDataLog-" + logName);
+        super("UACRRobotDataLog-" + logName, ".csv");
 
         fHeaders = headers;
 
@@ -29,7 +29,7 @@ public class UDataCollector extends UGenericLogger
     @Override
     protected void initLog()
     {
-        printCSV(fHeaders);
+        log(fHeaders);
     }
 
     /**
@@ -37,20 +37,7 @@ public class UDataCollector extends UGenericLogger
      */
     public void log(String... values)
     {
-        printCSV(values);
+        fLoggingQueue.add(values);
     }
 
-    /**
-     * @param values are printed to the file with a comma between each one
-     */
-    private void printCSV(String[] values)
-    {
-        String[] message = new String[values.length];
-        int k = 0;
-        for (String s : values)
-        {
-            message[k++] = s + ",";
-        }
-        fLoggingQueue.add(message);
-    }
 }

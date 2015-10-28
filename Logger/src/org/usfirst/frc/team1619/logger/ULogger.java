@@ -10,14 +10,14 @@ public class ULogger extends UGenericLogger
 
     public ULogger()
     {
-        super("UACRRobot" + UProperties.getLoggingLevel() + "Log");
+        super("UACRRobot" + UProperties.getLoggingLevel() + "Log", ".txt");
         nextLog();
     }
 
     /**
      * Logs an error message to the log file.
      *
-     * @param message The error message
+     * @param message The error message. All arguments separated by a space.
      */
     public void error(String... message)
     {
@@ -27,7 +27,7 @@ public class ULogger extends UGenericLogger
     /**
      * Logs a warning to the log file. The logging level must be greater than or equal to WARNING
      *
-     * @param message The warning message
+     * @param message The warning message. All arguments separated by a space.
      */
     public void warning(String... message)
     {
@@ -40,7 +40,7 @@ public class ULogger extends UGenericLogger
     /**
      * Logs the info message to the log file. The logging level must be greater than or equal to INFO
      *
-     * @param message The info message
+     * @param message The info message. All arguments separated by a space.
      */
     public void info(String... message)
     {
@@ -53,7 +53,7 @@ public class ULogger extends UGenericLogger
     /**
      * Logs the debug message to the log file. The logging level must be greater than or equal to DEBUG
      *
-     * @param message The debug message
+     * @param message The debug message. All arguments separated by a space.
      */
     public void debug(String... message)
     {
@@ -71,7 +71,7 @@ public class ULogger extends UGenericLogger
      */
     protected void log(String level, String[] message)
     {
-        message[0] = String.format(" [%s], %s",level, message[0]);
+        message[0] = String.format("[%s] - %s",level, message[0]);
         fLoggingQueue.add(message);
     }
 }

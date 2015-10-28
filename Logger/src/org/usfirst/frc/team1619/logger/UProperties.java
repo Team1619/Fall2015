@@ -17,7 +17,7 @@ public class UProperties extends Properties
 
         put("TEST_MODE", Boolean.FALSE);
         put("COMPETITION_MODE", Boolean.FALSE);
-        put("LOGGING_LEVEL", ULoggingLevels.ERROR);
+        put("LOGGING_LEVEL", ULoggingLevels.DEBUG);
         put("LOG_FOLDER_PATH", "/home/lvuser/log/");
     }
 
