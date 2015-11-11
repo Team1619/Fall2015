@@ -1,14 +1,20 @@
-#define OUTPIN 3
+#define PINOUT 3
 
-// pwm value between 0 and 255 inclusive
-int outputVal = 0;
+int dutyCycle = 0; 
+int highTime = 1500;
+int lowTime = 1000;
 
 void setup() {
-    pinMode(OUTPIN, OUTPUT);
-
+ pinMode(pin, OUTPUT); 
+ digitalWrite(pin, LOW);
 }
 
 void loop() {
-    analogWrite(OUTPIN, outputVal);
-    
+  digitalWrite(pin, HIGH);
+  delayMicroseconds(highus);
+  digitalWrite(pin, LOW);
+  delayMicroseconds(lowus);
+  
+  highTime = 8*dutyCycle + 1600;
+  lowTime = 5000-highTime;
 }
