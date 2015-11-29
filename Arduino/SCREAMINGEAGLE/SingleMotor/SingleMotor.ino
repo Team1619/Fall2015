@@ -1,8 +1,8 @@
-#define PINOUT 3
+unsigned int pin = 5;
 
-int dutyCycle = 0; 
-int highTime = 1500;
-int lowTime = 1000;
+signed int dutyCycle = -50;
+unsigned int highus = 1500;
+unsigned int lowus = 1000;
 
 void setup() {
  pinMode(pin, OUTPUT); 
@@ -15,6 +15,6 @@ void loop() {
   digitalWrite(pin, LOW);
   delayMicroseconds(lowus);
   
-  highTime = 8*dutyCycle + 1600;
-  lowTime = 5000-highTime;
+  highus = 5*dutyCycle + 1500;
+  lowus = 1000;
 }
