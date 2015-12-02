@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Command which handles the manual (joystick) driving of the robot.
  */
 public class ManualDriveCommand extends Command {
 
