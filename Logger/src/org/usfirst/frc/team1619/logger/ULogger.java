@@ -4,6 +4,11 @@ package org.usfirst.frc.team1619.logger;
  * Created by DanielHathcock on 10/6/15.
  * Project: Logger
  * Package: org.usfirst.frc.team1619.logger
+ *
+ * This is the subclass of UGenericLogger which is meant to be used to log generic information.
+ *
+ * All of this information can be categorized under the four main "Logging Levels" which
+ * determines whether or not the information is actually logged (via some property).
  */
 public class ULogger extends UGenericLogger
 {

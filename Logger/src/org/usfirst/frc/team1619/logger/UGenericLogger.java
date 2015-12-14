@@ -14,6 +14,12 @@ import java.util.concurrent.ArrayBlockingQueue;
  * Created by DanielHathcock on 10/23/15.
  * Project: Logger
  * Package: org.usfirst.frc.team1619.logger
+ *
+ * This is a generic implementation of a logger, and includes all of the code needed to
+ * asynchronously log data or generic information to a specified location on the robot
+ * computer.
+ *
+ * Extending classes include ULogger and UDataCollector
  */
 public abstract class UGenericLogger
 {
